@@ -13,8 +13,8 @@ public class Customer {
 	private String phoneNumber;
 	
 	public Customer () {}
-	public Customer (int customerNumber, String firstName, String lastName, Date birthDate, String username, String password, String phoneType, String phoneNumber ) {
-		this.customerNumber = customerNumber;
+	public Customer (String firstName, String lastName, Date birthDate, String username, String password, String phoneType, String phoneNumber, int customerNumber ) {
+		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthDate = birthDate;
@@ -22,6 +22,7 @@ public class Customer {
 		this.password = password;	
 		this.phoneType = phoneType;
 		this.phoneNumber = phoneNumber;
+		this.customerNumber = customerNumber;
 	}
 	public int getCustomerNumber() {
 		return customerNumber;
