@@ -4,22 +4,27 @@ import java.util.Scanner;
 
 import com.sti.privatebank.bisnis.Create;
 import com.sti.privatebank.bisnis.Delete;
+import com.sti.privatebank.bisnis.Search;
 import com.sti.privatebank.bisnis.Update;
 import com.sti.privatebank.bisnis.View;
+import com.sti.privatebank.model.Customer;
 
 public class MenuCRUD {
 	public void menuCRUD () throws Exception {
 		
 		MenuMain menumain = new MenuMain();
+		Customer customer = new Customer();
 		View menuView = new View();
 		Create menuCreate = new Create();
 		Update menuUpdate = new Update();
 		Delete menuDelete = new Delete();
+		Search menuSearch = new Search();
 		
 		System.out.println("1. Input Data Customer");
 		System.out.println("2. View Data Customer");
 		System.out.println("3. Update Data Customer");
 		System.out.println("4. Delete Data Customer");
+		System.out.println("5. Search Data Customer");
 		System.out.println("0. Back to Main Menu");
 		System.out.print("\nSilahkan masukkan nomor menu : ");
 		
@@ -42,8 +47,12 @@ public class MenuCRUD {
 		} else if (pilihmenu.equals("4")){
 			 System.out.println("============ Delete Data ============ \n ");
 			 menuDelete.deleteCustomer();
+		} else if (pilihmenu.equals("5")){
+			 System.out.println("============ Delete Data ============ \n ");
+			 
+			menuSearch.searchCustomer(customer);
 		
-		} else if (pilihmenu.equals("0")){
+		} else if(pilihmenu.equals("0")){
 			System.out.println("====================================== \n ");			
 			menumain.menuMain();
 			 	

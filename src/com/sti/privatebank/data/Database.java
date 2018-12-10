@@ -146,6 +146,29 @@ public class Database implements Connector {
 		return hasil;
 		
 	}
-       
+
+	@Override
+	public List<Customer> getSearch(Customer searchCustomer) throws Exception {
+		// TODO Auto-generated method stub
+		String query = "SELECT * from customer where customernumber = ?";
+		preparedStatement = getConnection().prepareStatement(query);
+		preparedStatement.setInt(1, searchCustomer.getCustomerNumber());
+		ResultSet rs = preparedStatement.executeQuery();
+		List<Customer> list = new ArrayList<>();
+		
+		if (rs.next()) {
+			searchCustomer.setFirstName(rs.getString("firstname"));
+			searchCustomer.setLastName(rs.getString("lastname"));
+			searchCustomer.setBirthDate(rs.getDate("birthdate"));
+			searchCustomer.setUsername(rs.getString("username"));
+			searchCustomer.setPassword(rs.getString("password"));
+			searchCustomer.setPhoneNumber(rs.getString("phonenumber"));
+			searchCustomer.setPhoneType(rs.getString("phonetype"));
+			
+			list.add(searchCustomer);
+		}
+		return list;
+	}
+
 
 }

@@ -9,4 +9,5 @@ public interface Connector {
 	void insertCustomer(Customer insertCustomer) throws Exception;
 	String updateCustomer(Customer updateCustomer) throws Exception;
 	String deleteCust(Customer cust);
+	List<Customer> getSearch(Customer searchCustomer) throws Exception;
 }
