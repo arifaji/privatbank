@@ -14,7 +14,7 @@ public class Update {
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public void updateCustomer() throws Exception {
-	/*	List<Customer> list = connector.getList();
+		/* List<Customer> list = connector.getList();
 		System.out.println("View Data Customer");
 		if(list!=null && !list.isEmpty()) {
 			for (Customer customer : list) {

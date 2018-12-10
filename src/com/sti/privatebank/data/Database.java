@@ -108,7 +108,8 @@ public class Database implements Connector {
 	public String updateCustomer(Customer updateCustomer) throws Exception {
     	try {
     		preparedStatement = getConnection()
-                    .prepareStatement("UPDATE `day4msql`.`customer` SET `firstname` = '?', `lastname` = '?', `birthdate` = '?', `username` = '?', `Password` = '?', `phonetype` = '?', `phonenumber` = '?' WHERE (`customernumber` = '?')");
+//                    .prepareStatement("UPDATE `day4msql`.`customer` SET `firstname` = '?', `lastname` = '?', `birthdate` = '?', `username` = '?', `Password` = '?', `phonetype` = '?', `phonenumber` = '?' WHERE (`customernumber` = '?')");
+    				.prepareStatement("UPDATE customer SET firstname =?, lastname = ?, birthdate = ?, username = ?, password = ?, phonetype = ?, phonenumber = ? where customernumber =?");
     		//UPDATE `day4msql`.`customer` SET `firstname` = 'rexuss', `lastname` = 's', `birthdate` = '1980-09-09 00:00:00', `username` = '123a456', `Password` = '1234a564', `phonetype` = '123a456', `phonenumber` = '1234a564' WHERE (`customernumber` = '17');
 
     		preparedStatement.setString(1, updateCustomer.getFirstName());
@@ -126,6 +127,24 @@ public class Database implements Connector {
     		hasil = "Gagal Update";
     	}
 		return hasil;
+	}
+	public String selectBy(Customer cust) {
+		// TODO Auto-generated method stub
+		PreparedStatement ps =null;
+		try {
+			String sql = "Select * FROM customer WHERE customernumber= ?";
+			ps = connect.prepareStatement(sql);
+			ps.setInt(1, cust.getCustomerNumber());
+			//System.out.println(ps);
+			ps.executeQuery();
+			
+			
+			hasil = "data yang akan di update";
+		} catch (Exception e) {
+			hasil = "data tidak ditemikan";
+		}
+		return hasil;
+		
 	}
        
 

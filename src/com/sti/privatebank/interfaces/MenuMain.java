@@ -9,7 +9,7 @@ public class MenuMain {
 		MenuCRUD menuCrud = new MenuCRUD();
 		
 		System.out.print("------------ Daftar  Menu ------------\n");
-		System.out.println("1. Account Number");
+		System.out.println("1. Customer Data");
 		System.out.println("0. exit");
 		System.out.print("\nSilahkan masukkan nomor menu : ");
 		
